@@ -1,0 +1,23 @@
+~/.config/systemd/user
+~/.config/systemd/user/ctags.service
+~/.config/systemd/user/ctags.timer
+
+journalctl --user
+journalctl --user -u ctags
+journalctl --user -u ctags -f
+
+systemctl --user
+systemctl --user daemon-reload
+systemctl --user start ctags.service
+systemctl --user status
+
+systemctl enable --user ctags
+systemctl enable --user ctags.timer
+
+systemctl status --user
+systemctl status --user ctags
+systemctl status --user ctags.timer
+
+loginctl show-user mutt
+loginctl enable-linger 
+

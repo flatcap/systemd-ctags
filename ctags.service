@@ -1,0 +1,14 @@
+[Unit]
+Description=Generate Ctags
+ConditionPathIsDirectory=%h/.cache/
+; ConditionACPower=true
+
+[Service]
+Type=oneshot
+ExecStart=ctags -R -f %h/.cache/tags /usr/include/ /usr/lib/gcc/x86_64-redhat-linux/12/include/
+
+# performance options
+Nice=19
+IOSchedulingClass=idle
+IOSchedulingPriority=7
+
